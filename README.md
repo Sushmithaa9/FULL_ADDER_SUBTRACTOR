@@ -38,18 +38,75 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
-**Procedure**
+![WhatsApp Image 2025-04-23 at 14 02 25_60acca3c](https://github.com/user-attachments/assets/fd774b1f-d9fd-4ab6-85e2-7bbc7dd98652)
 
-Write the detailed procedure here
+![WhatsApp Image 2025-04-23 at 14 02 25_1088451a](https://github.com/user-attachments/assets/bd7ba1fa-ccef-4995-99a2-d8e1cb79a128)
+
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+Developed by: S MANO SUSHMITHA 
+RegisterNumber:212224040187
+
+```
+module fulladder(a, b, c, sum, carry);
+    input a;
+    input b;
+    input c;
+    output sum;
+    output carry;
+	 reg sum,carry;
+	 reg t1,t2,t3;
+	 always @ (a or b or c) begin
+	 sum = (a^b)^c;
+	 t1=a & b;
+	 t2=b & c;
+	 t3=a & c;
+	 carry=(t1 | t2) | t3;
+	 end
+endmodule
+
+module fulsubbehavioral(a, b, cin, diff, borrow);
+    input a;
+    input b;
+    input cin;
+    output diff;
+    output borrow;
+	 reg t1,t2,t3;
+	 reg diff,borrow;
+	 reg abar;
+	 always @ (a or b or cin) begin
+	 abar= ~ a;
+	 diff = (a^b)^cin;
+	 t1=abar & b;
+	 t2=b & cin;
+	 t3=cin & abar;
+	 borrow=(t1 | t2) | t3;
+	 end
+	endmodule
+
+```
+
 
 **RTL Schematic**
 
+
+![WhatsApp Image 2025-04-23 at 14 02 24_f65376a5](https://github.com/user-attachments/assets/bd1362b1-37b7-4fd7-8db9-f22308a4af40)
+
+
+![WhatsApp Image 2025-04-23 at 14 02 24_3beb5a2e](https://github.com/user-attachments/assets/28b13201-281f-4ada-8dec-8d1e4b869bbe)
+
+
+
 **Output Timing Waveform**
+
+
+![WhatsApp Image 2025-04-23 at 14 02 24_71a7874f](https://github.com/user-attachments/assets/1fb9cd4c-1350-4bba-b355-8bf44cb1f1c9)
+
+
+![WhatsApp Image 2025-04-23 at 14 02 24_1b4ab41c](https://github.com/user-attachments/assets/d0b03c91-d196-440a-bb57-9fcdbf6adc01)
+
+
 
 **Result:**
 
